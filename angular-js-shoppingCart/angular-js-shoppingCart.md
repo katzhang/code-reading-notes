@@ -37,10 +37,20 @@ An AngularJS sample application.
 
 ###store.htm
 * Data-binding and filter: the `<input` is bound to a variable with the same name as `search` in the data model and keep the two in sync. Whatever changes in the `<input>`, the filter input changes too.
+* Pipe sign (|) is used to invoke AngularJS filters. `orderBy` and `filter` are Angular filters.
+* Note that `ngRepeat` not only instantiates a template once per item from a collection, it also makes sure each template instance gets its own scope. 
 
 		<input ng-model="search">
 		...
 		<tr ng-repeat="product in store.products | orderBy: 'name' | filter: search" >
+
+* Directives can be injected as values of elements' attributes, like `<a href="#/products/{{product.sku}}">`, or as text nodes. But for `image` element's `src` attribute, use `ngSrc` to avoid bugs:
+
+		<img ng-src="img/products/{{product.sku}}.jpg">
+		
+* If the exression inside `ngDisable` is truth, then special attribute `disabled` will be set on the element.
+
+		<a href="default.htm#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
 
 
 		
