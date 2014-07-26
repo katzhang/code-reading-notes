@@ -53,4 +53,10 @@ An AngularJS sample application.
 		<a href="default.htm#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
 
 
+###product.htm
+* When URL is directed to a product page, storeController calls store object's method `getProduct`.
+* `ngRepeat` supports a lot of different formats. For example, it supports `(key, value) in expression`, where `key` and `value` can be any user defined identifiers, and `expression` is the scope expression giving the collection to enumerate.
+
+		<tr ng-repeat="(nutrientName, nutrientValue) in product.nutrients">
+		
 		
